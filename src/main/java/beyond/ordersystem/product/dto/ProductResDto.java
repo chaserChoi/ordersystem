@@ -1,0 +1,28 @@
+package beyond.ordersystem.product.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ProductResDto {
+    private Long id;
+    private String name;
+    private String category;
+    private int price;
+    private int stockQuantity;
+
+    public static ProductResDto fromEntity(beyond.ordersystem.product.domain.Product product) {
+        return ProductResDto.builder()
+                .id(product.getId())
+                .name(product.getName())
+                .category(product.getCategory())
+                .price(product.getPrice())
+                .stockQuantity(product.getStockQuantity())
+                .build();
+    }
+}
